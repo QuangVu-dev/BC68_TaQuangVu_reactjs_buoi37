@@ -14,6 +14,7 @@ const FormSinhVien = () => {
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
+  const mssvRegExp = /^\d{6}$/;
   const {
     handleChange,
     handleSubmit,
@@ -47,9 +48,10 @@ const FormSinhVien = () => {
         .required("Vui lòng nhập dữ liệu"),
       mssv: yup
         .string()
+        .matches(mssvRegExp, "Nhập đúng định dạng mã số sinh viên")
         .required("Vui lòng nhập dữ liệu")
-        .min(4, "Vui lòng nhập trên 4 ký tự")
-        .max(8, "Vui lòng nhập ít hơn 8 ký tự"),
+        .max(6, "Vui lòng nhập 6 ký số")
+        .min(6, "Vui lòng nhập 6 ký số"),
       soDienThoai: yup
         .string()
         .matches(phoneRegExp, "Nhập đúng định dạng số điện thoại")

@@ -5,5 +5,5 @@ export const getValueLocalStorage = (key) => {
 
 export const setValueLocalStorage = (key, value) => {
   let stringData = JSON.stringify(value);
-  localStorage.getItem(key, stringData);
+  localStorage.setItem(key, stringData);
 };
